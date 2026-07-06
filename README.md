@@ -1,3 +1,4 @@
+
 # 📄 Paperless-ngx Integration for OpenWebUI
 
 <div align="center">
@@ -10,6 +11,13 @@
 **Full-featured tool for managing Paperless-ngx documents directly from your AI chat**
 
 </div>
+
+---
+
+## 🌍 Read this in other languages
+
+- [English](README.md) (You are here)
+- [Русский](README.ru.md)
 
 ---
 
