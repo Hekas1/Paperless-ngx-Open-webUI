@@ -14,8 +14,8 @@
 
 ## 🌍 Read this in other languages
 
-- [English](README.md) (You are here)
-- [Русский](README.ru.md)
+- [English](README.md) 
+- [Русский](README.ru.md) (Ты здесь)
 
 ---
 
