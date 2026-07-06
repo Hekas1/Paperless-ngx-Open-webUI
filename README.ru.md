@@ -17,6 +17,7 @@
 
 - [English](README.md) 
 - [Русский](README.ru.md) (Ты здесь)
+- [Español](README.es.md)
 
 ---
 
