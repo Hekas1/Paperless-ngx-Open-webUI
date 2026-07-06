@@ -7,355 +7,355 @@
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-**Полнофункциональный инструмент для управления документами Paperless-ngx прямо из чата с AI**
+**Full-featured tool for managing Paperless-ngx documents directly from your AI chat**
 
 </div>
 
 ---
 
-## 📖 О проекте
+## 📖 About
 
-Этот инструмент превращает OpenWebUI в мощный интерфейс для управления вашей системой документооборота Paperless-ngx. Всё, что вы делали через веб-интерфейс, теперь доступно через простые команды в чате.
-
----
-
-## ✨ Возможности
-
-### 📄 Управление документами
-
-- **Текстовый поиск** — поиск по содержимому с подсветкой совпадений
-- **Поиск по тегам** — фильтрация документов (AND/OR режимы)
-- **Точный поиск** — поиск документов, содержащих ВСЕ указанные теги
-- **Получение документа** — просмотр полной информации и содержимого
-- **Автоцитирование** — автоматическое создание цитат с указанием источника
-
-### 🏷️ Управление тегами
-
-- **Иерархия** — просмотр древовидной структуры тегов
-- **Добавление** — назначение тегов документам
-- **Удаление** — снятие меток с документов
-- **Кэширование** — быстрый доступ к тегам
-
-### 📝 Работа с примечаниями
-
-- **Просмотр** — чтение всех примечаний документа
-- **Добавление** — создание новых заметок
-- **Редактирование** — обновление существующих
-- **Удаление** — удаление по индексу
-
-### 📋 Пользовательские поля
-
-- **Создание** — 9 типов данных (текст, число, дата, выбор и др.)
-- **Управление** — чтение, обновление и удаление полей
-- **Заполнение** — установка значений для документов
+This tool transforms OpenWebUI into a powerful interface for managing your Paperless-ngx document management system. Everything you used to do through the web interface is now available through simple chat commands.
 
 ---
 
-## 🚀 Быстрый старт
+## ✨ Features
 
-### 1. Установка
+### 📄 Document Management
 
-1. Откройте **OpenWebUI** → `Admin Panel` → `Tools`
-2. Нажмите **Create New Tool**
-3. Вставьте код инструмента
-4. Настройте параметры
+- **Text Search** — Full-text search with highlighted matches
+- **Tag Search** — Filter documents by tags (AND/OR modes)
+- **Exact Search** — Find documents containing ALL specified tags
+- **Document Retrieval** — View full information and content
+- **Auto-citation** — Automatic citations with source attribution
 
-### 2. Конфигурация инструмента
+### 🏷️ Tag Management
+
+- **Hierarchy** — View tree structure of tags
+- **Add Tags** — Assign tags to documents
+- **Remove Tags** — Remove tags from documents
+- **Caching** — Fast tag access for better performance
+
+### 📝 Notes Management
+
+- **View** — Read all document notes
+- **Add** — Create new notes
+- **Edit** — Update existing notes
+- **Delete** — Remove notes by index
+
+### 📋 Custom Fields
+
+- **Create** — 9 data types (text, number, date, select, etc.)
+- **Manage** — Read, update, and delete fields
+- **Fill** — Set values for documents
+
+---
+
+## 🚀 Quick Start
+
+### 1. Installation
+
+1. Open **OpenWebUI** → `Admin Panel` → `Tools`
+2. Click **Create New Tool**
+3. Paste the tool code
+4. Configure the parameters
+
+### 2. Tool Configuration
 
 ```yaml
 Title: Paperless-ngx Document Search
 Author: Your Name
-Version: 1.1.0
+Version: 0.1.0
 License: MIT
-Description: Инструмент для поиска, получения и редактирования документов в Paperless-ngx через REST API
+Description: Tool for searching, retrieving and editing documents in Paperless-ngx via REST API
 Requirements: httpx
 ```
 
-### 3. Настройка подключения
+### 3. Connection Setup
 
-В разделе **Valves** укажите:
+In the **Valves** section, specify:
 
-| Параметр | Описание | Пример |
-|----------|----------|--------|
-| `paperless_url` | URL вашего Paperless-ngx сервера | `http://localhost:8000` |
-| `api_token` | API токен из Paperless-ngx | `your-secret-token` |
-| `max_results` | Максимум документов в ответе (1-20) | `5` |
-| `search_limit` | Лимит поиска (1-100) | `50` |
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `paperless_url` | Your Paperless-ngx server URL | `http://localhost:8000` |
+| `api_token` | API token from Paperless-ngx | `your-secret-token` |
+| `max_results` | Maximum documents in response (1-20) | `5` |
+| `search_limit` | Search limit (1-100) | `50` |
 
-### 4. Получение API токена
+### 4. Getting an API Token
 
-1. Войдите в Paperless-ngx
-2. Перейдите в **Профиль** → **Токены API**
-3. Создайте новый токен
-4. Скопируйте и вставьте в настройки
-
----
-
-## 💡 Примеры использования
-
-### Поиск документов
-
-```
-🔍 Найди все договоры за февраль 2025
-```
-
-```
-🏷️ Покажи документы с тегами "Наследство, Тарифы"
-```
-
-```
-📄 Получи документ 12345 с полной информацией
-```
-
-### Управление тегами
-
-```
-➕ Добавь тег "Важно" к документу 12345
-```
-
-```
-🗑️ Удали тег "Черновик" у документа 12345
-```
-
-```
-🌳 Покажи все теги с иерархией
-```
-
-### Примечания и поля
-
-```
-📝 Покажи примечания документа 12345
-```
-
-```
-📋 Покажи пользовательские поля документа 12345
-```
-
-### Создание полей
-
-```
-📋 Создай поле "Ответственный" типа string
-```
-
-```
-📋 Создай поле "Статус" типа select с опциями: Новый, В работе, Завершён
-```
+1. Log in to Paperless-ngx
+2. Go to **Profile** → **API Tokens**
+3. Create a new token
+4. Copy and paste it into the settings
 
 ---
 
-## 🛠️ Все функции
+## 💡 Usage Examples
 
-### 📄 Документы
+### Document Search
 
-| Функция | Параметры | Описание |
-|---------|-----------|----------|
-| `search_documents` | `query: str` | Поиск по тексту с подсветкой |
-| `search_by_tags` | `tags: str, match_all: bool` | Поиск по тегам (AND/OR) |
-| `search_by_tags_exact` | `tags: str` | Точное совпадение ВСЕХ тегов |
-| `get_document_by_id` | `doc_id: int` | Полная информация о документе |
-| `get_document_tags` | `doc_id: int` | Только теги документа |
+```
+🔍 Find all contracts from February 2025
+```
 
-### 🏷️ Теги
+```
+🏷️ Show documents with tags "Invoices, Urgent"
+```
 
-| Функция | Параметры | Описание |
-|---------|-----------|----------|
-| `list_tags` | `-` | Список всех тегов |
-| `list_tags_hierarchical` | `-` | Иерархическое дерево тегов |
-| `get_tag_hierarchy` | `tag_name: str` | Иерархия конкретного тега |
-| `get_tags_with_parents` | `doc_id: int` | Теги документа с иерархией |
-| `add_tag_to_document` | `doc_id: int, tag_name: str` | Добавить тег документу |
-| `remove_tag_from_document` | `doc_id: int, tag_name: str` | Удалить тег у документа |
-| `clear_tag_cache` | `-` | Обновить кэш тегов |
+```
+📄 Get document 12345 with full details
+```
 
-### 📝 Примечания
+### Tag Management
 
-| Функция | Параметры | Описание |
-|---------|-----------|----------|
-| `get_document_notes` | `doc_id: int` | Список примечаний |
-| `add_document_note` | `doc_id: int, note: str` | Добавить примечание |
-| `update_document_note` | `doc_id: int, note_index: int, new_note: str` | Обновить примечание |
-| `delete_document_note` | `doc_id: int, note_index: int` | Удалить примечание |
+```
+➕ Add tag "Important" to document 12345
+```
 
-### 📋 Пользовательские поля
+```
+🗑️ Remove tag "Draft" from document 12345
+```
 
-| Функция | Параметры | Описание |
-|---------|-----------|----------|
-| `list_custom_fields` | `-` | Список всех полей |
-| `get_document_custom_fields` | `doc_id: int` | Поля документа |
-| `set_document_custom_field` | `doc_id: int, field_name: str, value: str` | Установить значение |
-| `remove_document_custom_field` | `doc_id: int, field_name: str` | Удалить значение |
-| `create_custom_field` | `name, field_type, required, options` | Создать поле |
-| `delete_custom_field` | `field_id_or_name: str` | Удалить поле |
-| `update_custom_field` | `field_id_or_name, new_name, required, options` | Обновить поле |
+```
+🌳 Show all tags with hierarchy
+```
 
-### 🐛 Диагностика
+### Notes and Fields
 
-| Функция | Параметры | Описание |
-|---------|-----------|----------|
-| `debug_document_tags` | `doc_id: int` | Диагностика тегов документа |
+```
+📝 Show notes for document 12345
+```
 
----
+```
+📋 Show custom fields for document 12345
+```
 
-## 📋 Типы пользовательских полей
+### Creating Fields
 
-| Тип | Описание | Пример значения |
-|-----|----------|-----------------|
-| `string` | Текст | `"Иванов Иван"` |
-| `integer` | Целое число | `42` |
-| `float` | Дробное число | `3.14` |
-| `boolean` | Да/Нет | `true` |
-| `date` | Дата | `2025-03-15` |
-| `datetime` | Дата и время | `2025-03-15T14:30:00` |
-| `monetary` | Денежное значение | `1000.50` |
-| `documentlink` | Ссылка на документ | `12345` |
-| `select` | Выбор из списка | `"Новый"` |
+```
+📋 Create field "Responsible" of type string
+```
+
+```
+📋 Create field "Status" of type select with options: New, In Progress, Done
+```
 
 ---
 
-## ⚙️ Настройка окружения
+## 🛠️ All Functions
+
+### 📄 Documents
+
+| Function | Parameters | Description |
+|----------|------------|-------------|
+| `search_documents` | `query: str` | Full-text search with highlights |
+| `search_by_tags` | `tags: str, match_all: bool` | Search by tags (AND/OR) |
+| `search_by_tags_exact` | `tags: str` | Exact match of ALL tags |
+| `get_document_by_id` | `doc_id: int` | Full document information |
+| `get_document_tags` | `doc_id: int` | Only document tags |
+
+### 🏷️ Tags
+
+| Function | Parameters | Description |
+|----------|------------|-------------|
+| `list_tags` | `-` | List all tags |
+| `list_tags_hierarchical` | `-` | Hierarchical tag tree |
+| `get_tag_hierarchy` | `tag_name: str` | Hierarchy of a specific tag |
+| `get_tags_with_parents` | `doc_id: int` | Document tags with hierarchy |
+| `add_tag_to_document` | `doc_id: int, tag_name: str` | Add tag to document |
+| `remove_tag_from_document` | `doc_id: int, tag_name: str` | Remove tag from document |
+| `clear_tag_cache` | `-` | Refresh tag cache |
+
+### 📝 Notes
+
+| Function | Parameters | Description |
+|----------|------------|-------------|
+| `get_document_notes` | `doc_id: int` | List of notes |
+| `add_document_note` | `doc_id: int, note: str` | Add a note |
+| `update_document_note` | `doc_id: int, note_index: int, new_note: str` | Update a note |
+| `delete_document_note` | `doc_id: int, note_index: int` | Delete a note |
+
+### 📋 Custom Fields
+
+| Function | Parameters | Description |
+|----------|------------|-------------|
+| `list_custom_fields` | `-` | List all fields |
+| `get_document_custom_fields` | `doc_id: int` | Document fields |
+| `set_document_custom_field` | `doc_id: int, field_name: str, value: str` | Set field value |
+| `remove_document_custom_field` | `doc_id: int, field_name: str` | Remove field value |
+| `create_custom_field` | `name, field_type, required, options` | Create a field |
+| `delete_custom_field` | `field_id_or_name: str` | Delete a field |
+| `update_custom_field` | `field_id_or_name, new_name, required, options` | Update a field |
+
+### 🐛 Diagnostics
+
+| Function | Parameters | Description |
+|----------|------------|-------------|
+| `debug_document_tags` | `doc_id: int` | Document tag diagnostics |
+
+---
+
+## 📋 Custom Field Types
+
+| Type | Description | Example Value |
+|------|-------------|---------------|
+| `string` | Text | `"John Doe"` |
+| `integer` | Integer number | `42` |
+| `float` | Floating point number | `3.14` |
+| `boolean` | Yes/No | `true` |
+| `date` | Date | `2025-03-15` |
+| `datetime` | Date and time | `2025-03-15T14:30:00` |
+| `monetary` | Monetary value | `1000.50` |
+| `documentlink` | Link to document | `12345` |
+| `select` | Selection from list | `"New"` |
+
+---
+
+## ⚙️ Environment Setup
 
 ### Docker
 
-Если Paperless-ngx запущен в Docker:
+If Paperless-ngx is running in Docker:
 
 ```yaml
-# Для Windows/Mac
+# For Windows/Mac
 paperless_url: http://host.docker.internal:8000
 
-# Для Linux
+# For Linux
 paperless_url: http://172.17.0.1:8000
 ```
 
-### Кэширование тегов
+### Tag Caching
 
-Инструмент кэширует теги для ускорения работы. При создании новых тегов в Paperless-ngx обновите кэш:
+The tool caches tags for faster performance. When you create new tags in Paperless-ngx, refresh the cache:
 
 ```
-🔄 Обнови кэш тегов
+🔄 Refresh tag cache
 ```
 
 ---
 
-## 🏗️ Архитектура
+## 🏗️ Architecture
 
-### Компоненты системы
+### System Components
 
 **1. OpenWebUI Chat**
-Интерфейс пользователя, принимает команды и отображает результаты.
+User interface that receives commands and displays results.
 
 **2. Paperless-ngx Tool**
-Основной модуль, который обрабатывает запросы и управляет взаимодействием с API.
+Main module that processes requests and manages API interactions.
 
-**3. Кэш тегов**
-Хранит список тегов для быстрого доступа, избегая лишних запросов к API.
+**3. Tag Cache**
+Stores tag list for quick access, avoiding unnecessary API calls.
 
-**4. Модули инструмента**
-- Модуль документов — поиск, просмотр, получение документов
-- Модуль тегов — управление тегами и иерархией
-- Модуль примечаний — CRUD операции с заметками
-- Модуль полей — создание и управление пользовательскими полями
+**4. Tool Modules**
+- Documents module — search, view, retrieve documents
+- Tags module — manage tags and hierarchy
+- Notes module — CRUD operations with notes
+- Fields module — create and manage custom fields
 
 **5. HTTPX Client**
-Отвечает за отправку HTTP-запросов к Paperless-ngx API.
+Handles HTTP requests to the Paperless-ngx API.
 
 **6. Paperless-ngx REST API**
-Бэкенд системы, предоставляет эндпоинты для работы с данными:
-- `/api/documents/` — управление документами
-- `/api/tags/` — управление тегами
-- `/api/custom_fields/` — управление пользовательскими полями
-- `/api/documents/{id}/notes/` — управление примечаниями
+Backend system providing endpoints for data operations:
+- `/api/documents/` — document management
+- `/api/tags/` — tag management
+- `/api/custom_fields/` — custom field management
+- `/api/documents/{id}/notes/` — note management
 
-### Взаимодействие
+### Interaction Flow
 
-1. Пользователь отправляет команду в чат
-2. Инструмент определяет тип операции
-3. Формируется HTTP-запрос к соответствующему эндпоинту
-4. API возвращает данные
-5. Результат форматируется и отображается в чате
+1. User sends a command in chat
+2. Tool identifies the operation type
+3. HTTP request is formed to the appropriate endpoint
+4. API returns the data
+5. Result is formatted and displayed in chat
 
 ---
 
-## 🔧 Устранение проблем
+## 🔧 Troubleshooting
 
-### ❌ Ошибка 401 (Unauthorized)
+### ❌ Error 401 (Unauthorized)
 
-**Проблема:** Неверный API токен
+**Problem:** Invalid API token
 
-**Решение:**
-- Проверьте корректность токена в настройках
-- Убедитесь, что токен имеет необходимые права
-- Создайте новый токен в Paperless-ngx
+**Solution:**
+- Check token correctness in settings
+- Ensure token has necessary permissions
+- Create a new token in Paperless-ngx
 
-### ❌ Ошибка подключения
+### ❌ Connection Error
 
-**Проблема:** Недоступен сервер Paperless-ngx
+**Problem:** Paperless-ngx server unavailable
 
-**Решение:**
-- Проверьте URL в настройках
-- Убедитесь, что сервер запущен
-- Проверьте сетевые настройки (особенно в Docker)
-- Проверьте файрвол
+**Solution:**
+- Check URL in settings
+- Ensure server is running
+- Check network settings (especially in Docker)
+- Check firewall
 
-### ❌ Теги не отображаются
+### ❌ Tags Not Displaying
 
-**Проблема:** Устаревший кэш тегов
+**Problem:** Outdated tag cache
 
-**Решение:**
+**Solution:**
 ```
-🔄 Обнови кэш тегов
+🔄 Refresh tag cache
 ```
 
-### ❌ Документ не найден
+### ❌ Document Not Found
 
-**Проблема:** Неправильный ID документа
+**Problem:** Incorrect document ID
 
-**Решение:**
-- Проверьте правильность ID
-- Используйте поиск для получения корректных ID
-- Убедитесь, что документ существует
-
----
-
-## 🔒 Безопасность
-
-- API токен хранится в зашифрованном виде в настройках OpenWebUI
-- Поддержка HTTPS для защищённого соединения
-- Токен передаётся в заголовке `Authorization`
-- Все запросы аутентифицированы
+**Solution:**
+- Verify the ID is correct
+- Use search to get correct IDs
+- Ensure the document exists
 
 ---
 
-## 📝 Лицензия
+## 🔒 Security
 
-MIT License — используйте свободно в любых целях.
-
----
-
-## 🤝 Вклад в проект
-
-Будем рады вашим идеям, баг-репортам и pull request'ам!
-
-**Как помочь:**
-1. Форкните репозиторий
-2. Создайте ветку с фичей
-3. Отправьте pull request
+- API token is stored encrypted in OpenWebUI settings
+- HTTPS support for secure connections
+- Token is passed in the `Authorization` header
+- All requests are authenticated
 
 ---
 
-## 🙏 Благодарности
+## 📝 License
 
-- [Paperless-ngx](https://docs.paperless-ngx.com/) — за отличную систему управления документами
-- [OpenWebUI](https://openwebui.com/) — за расширяемый AI-интерфейс
-- [httpx](https://www.python-httpx.org/) — за удобный HTTP-клиент
+MIT License — free to use for any purpose.
+
+---
+
+## 🤝 Contributing
+
+We welcome ideas, bug reports, and pull requests!
+
+**How to help:**
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request
+
+---
+
+## 🙏 Acknowledgements
+
+- [Paperless-ngx](https://docs.paperless-ngx.com/) — for the excellent document management system
+- [OpenWebUI](https://openwebui.com/) — for the extensible AI interface
+- [httpx](https://www.python-httpx.org/) — for the convenient HTTP client
 
 ---
 
 <div align="center">
 
-**[⬆ Наверх](#-paperless-ngx-integration-for-openwebui)**
+**[⬆ Back to top](#-paperless-ngx-integration-for-openwebui)**
 
 ---
 
-**Сделано с ❤️ для сообщества Paperless-ngx**
+**Made with ❤️ for the Paperless-ngx community**
 
 </div>
