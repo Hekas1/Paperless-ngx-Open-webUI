@@ -1,213 +1,361 @@
-Paperless-ngx Integration for OpenWebUI
+# 📄 Paperless-ngx Integration for OpenWebUI
 
-<div align="center"> <img src="https://img.shields.io/badge/OpenWebUI-Tool-blue?style=for-the-badge&logo=github" alt="OpenWebUI Tool"> <img src="https://img.shields.io/badge/Paperless--ngx-API-green?style=for-the-badge&logo=paperless" alt="Paperless-ngx"> <img src="https://img.shields.io/badge/Python-3.8+-yellow?style=for-the-badge&logo=python" alt="Python"> <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License"> </div>
+<div align="center">
 
-📖 About
+[![OpenWebUI](https://img.shields.io/badge/OpenWebUI-Tool-0056b3?style=for-the-badge&logo=openai)](https://openwebui.com/)
+[![Paperless-ngx](https://img.shields.io/badge/Paperless--ngx-API-2ea44f?style=for-the-badge&logo=paperless)](https://docs.paperless-ngx.com/)
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-Paperless-ngx Integration — это мощный инструмент для OpenWebUI, который предоставляет полный доступ к вашему экземпляру Paperless-ngx через REST API. Инструмент позволяет искать, просматривать и управлять документами, тегами, примечаниями и пользовательскими полями прямо из чата с AI-ассистентом.
+**Полнофункциональный инструмент для управления документами Paperless-ngx прямо из чата с AI**
 
-✨ Key Features
+</div>
 
-<details> <summary><b>🔍 Поиск и просмотр документов</b></summary>
-Текстовый поиск — поиск по содержимому документов с подсветкой совпадений
-Поиск по тегам — фильтрация документов по тегам (AND/OR режимы)
-Точный поиск по тегам — поиск документов, содержащих ВСЕ указанные теги
-Получение документа — просмотр полной информации, включая все поля и содержимое
-Цитирование — автоматическое создание цитат с указанием источника
-</details><details> <summary><b>🏷️ Управление тегами</b></summary>
-Иерархия тегов — просмотр древовидной структуры тегов
-Добавление тегов — назначение существующих тегов документам
-Удаление тегов — снятие меток с документов
-Информация о тегах — получение иерархии конкретного тега
-</details><details> <summary><b>📝 Работа с примечаниями</b></summary>
-Просмотр — чтение всех примечаний документа
-Добавление — создание новых примечаний
-Редактирование — обновление существующих примечаний
-Удаление — удаление примечаний по индексу
-</details><details> <summary><b>📋 Пользовательские поля</b></summary>
-Создание — создание полей с разными типами данных
-Управление — чтение, обновление и удаление пользовательских полей
-Заполнение — установка значений полей для документов
-</details>
-🚀 Installation
+---
 
-1. Скачайте файл
+## 📖 О проекте
 
-Скопируйте содержимое файла paperless_ngx_tool.py в новый инструмент OpenWebUI.
+Этот инструмент превращает OpenWebUI в мощный интерфейс для управления вашей системой документооборота Paperless-ngx. Всё, что вы делали через веб-интерфейс, теперь доступно через простые команды в чате.
 
-2. Настройте подключение
+---
 
-Перейдите в Admin Panel → Tools и создайте новый инструмент со следующими настройками:
+## ✨ Возможности
 
-yaml
+### 📄 Управление документами
+
+- **Текстовый поиск** — поиск по содержимому с подсветкой совпадений
+- **Поиск по тегам** — фильтрация документов (AND/OR режимы)
+- **Точный поиск** — поиск документов, содержащих ВСЕ указанные теги
+- **Получение документа** — просмотр полной информации и содержимого
+- **Автоцитирование** — автоматическое создание цитат с указанием источника
+
+### 🏷️ Управление тегами
+
+- **Иерархия** — просмотр древовидной структуры тегов
+- **Добавление** — назначение тегов документам
+- **Удаление** — снятие меток с документов
+- **Кэширование** — быстрый доступ к тегам
+
+### 📝 Работа с примечаниями
+
+- **Просмотр** — чтение всех примечаний документа
+- **Добавление** — создание новых заметок
+- **Редактирование** — обновление существующих
+- **Удаление** — удаление по индексу
+
+### 📋 Пользовательские поля
+
+- **Создание** — 9 типов данных (текст, число, дата, выбор и др.)
+- **Управление** — чтение, обновление и удаление полей
+- **Заполнение** — установка значений для документов
+
+---
+
+## 🚀 Быстрый старт
+
+### 1. Установка
+
+1. Откройте **OpenWebUI** → `Admin Panel` → `Tools`
+2. Нажмите **Create New Tool**
+3. Вставьте код инструмента
+4. Настройте параметры
+
+### 2. Конфигурация инструмента
+
+```yaml
 Title: Paperless-ngx Document Search
 Author: Your Name
 Version: 1.1.0
 License: MIT
 Description: Инструмент для поиска, получения и редактирования документов в Paperless-ngx через REST API
 Requirements: httpx
-3. Настройте переменные
+```
 
-В разделе Valves укажите:
+### 3. Настройка подключения
 
-Настройка	Описание	Пример
-paperless_url	URL вашего Paperless-ngx сервера	http://192.168.1.100:8000
-api_token	API токен из Paperless-ngx (Профиль → Токены API)	your-api-token-here
-max_results	Максимум документов в ответе (1-20)	5
-search_limit	Лимит поиска (1-100)	50
-🛠️ Available Functions
+В разделе **Valves** укажите:
 
-📄 Документы
+| Параметр | Описание | Пример |
+|----------|----------|--------|
+| `paperless_url` | URL вашего Paperless-ngx сервера | `http://localhost:8000` |
+| `api_token` | API токен из Paperless-ngx | `your-secret-token` |
+| `max_results` | Максимум документов в ответе (1-20) | `5` |
+| `search_limit` | Лимит поиска (1-100) | `50` |
 
-Функция	Описание	Параметры
-search_documents(query)	Поиск по тексту	query — поисковый запрос
-search_by_tags(tags, match_all=False)	Поиск по тегам	tags — список через запятую, match_all — AND/OR
-search_by_tags_exact(tags)	Точный поиск по тегам (AND)	tags — список через запятую
-get_document_by_id(doc_id)	Полная информация о документе	doc_id — ID документа
-get_document_tags(doc_id)	Теги документа	doc_id — ID документа
-🏷️ Теги
+### 4. Получение API токена
 
-Функция	Описание	Параметры
-list_tags()	Список всех тегов	—
-list_tags_hierarchical()	Иерархический список тегов	—
-get_tag_hierarchy(tag_name)	Иерархия конкретного тега	tag_name — название тега
-get_tags_with_parents(doc_id)	Теги документа с иерархией	doc_id — ID документа
-add_tag_to_document(doc_id, tag_name)	Добавить тег документу	doc_id, tag_name
-remove_tag_from_document(doc_id, tag_name)	Удалить тег у документа	doc_id, tag_name
-clear_tag_cache()	Обновить кэш тегов	—
-📝 Примечания
+1. Войдите в Paperless-ngx
+2. Перейдите в **Профиль** → **Токены API**
+3. Создайте новый токен
+4. Скопируйте и вставьте в настройки
 
-Функция	Описание	Параметры
-get_document_notes(doc_id)	Список примечаний	doc_id
-add_document_note(doc_id, note)	Добавить примечание	doc_id, note
-update_document_note(doc_id, note_index, new_note)	Обновить примечание	doc_id, note_index, new_note
-delete_document_note(doc_id, note_index=-1)	Удалить примечание	doc_id, note_index
-📋 Пользовательские поля
+---
 
-Функция	Описание	Параметры
-list_custom_fields()	Список всех полей	—
-get_document_custom_fields(doc_id)	Поля документа	doc_id
-set_document_custom_field(doc_id, field_name, value)	Установить значение	doc_id, field_name, value
-remove_document_custom_field(doc_id, field_name)	Удалить значение	doc_id, field_name
-create_custom_field(name, field_type='string', required=False, options=None)	Создать поле	См. параметры
-delete_custom_field(field_id_or_name)	Удалить поле	field_id_or_name
-update_custom_field(field_id_or_name, new_name=None, required=None, options=None)	Обновить поле	См. параметры
-🐛 Диагностика
+## 💡 Примеры использования
 
-Функция	Описание	Параметры
-debug_document_tags(doc_id)	Диагностика тегов документа	doc_id
-💡 Usage Examples
+### Поиск документов
 
-Поиск документов
+```
+🔍 Найди все договоры за февраль 2025
+```
 
-text
-🔍 Найди все счета за март 2025 года
-text
+```
 🏷️ Покажи документы с тегами "Наследство, Тарифы"
-text
-📄 Получи документ #12345 с полной информацией
-Управление тегами
+```
 
-text
-➕ Добавь тег "Важно" к документу #12345
-text
-🗑️ Удали тег "Черновик" у документа #12345
-text
+```
+📄 Получи документ 12345 с полной информацией
+```
+
+### Управление тегами
+
+```
+➕ Добавь тег "Важно" к документу 12345
+```
+
+```
+🗑️ Удали тег "Черновик" у документа 12345
+```
+
+```
 🌳 Покажи все теги с иерархией
-Примечания и поля
+```
 
-text
-📝 Покажи примечания документа #12345
-text
-📋 Покажи пользовательские поля документа #12345
-Создание полей
+### Примечания и поля
 
-text
-📋 Создай пользовательское поле "Ответственный" типа string
-text
+```
+📝 Покажи примечания документа 12345
+```
+
+```
+📋 Покажи пользовательские поля документа 12345
+```
+
+### Создание полей
+
+```
+📋 Создай поле "Ответственный" типа string
+```
+
+```
 📋 Создай поле "Статус" типа select с опциями: Новый, В работе, Завершён
-📋 Типы пользовательских полей
+```
 
-Тип	Описание	Пример значения
-string	Текст	"Иванов Иван"
-integer	Целое число	42
-float	Дробное число	3.14
-boolean	Да/Нет	true / false
-date	Дата	2025-03-15
-datetime	Дата и время	2025-03-15T14:30:00
-monetary	Денежное значение	1000.50
-documentlink	Ссылка на документ	12345
-select	Выбор из списка	"Новый"
-🔧 Configuration Tips
+---
 
-1. Получение API токена
+## 🛠️ Все функции
 
-Войдите в Paperless-ngx
-Перейдите в Профиль → Токены API
-Создайте новый токен с правами на чтение/запись
-Скопируйте токен и вставьте в настройки инструмента
-2. Настройка сети
+### 📄 Документы
 
-Если Paperless-ngx работает в Docker:
+| Функция | Параметры | Описание |
+|---------|-----------|----------|
+| `search_documents` | `query: str` | Поиск по тексту с подсветкой |
+| `search_by_tags` | `tags: str, match_all: bool` | Поиск по тегам (AND/OR) |
+| `search_by_tags_exact` | `tags: str` | Точное совпадение ВСЕХ тегов |
+| `get_document_by_id` | `doc_id: int` | Полная информация о документе |
+| `get_document_tags` | `doc_id: int` | Только теги документа |
 
-yaml
-paperless_url: http://host.docker.internal:8000  # Windows/Mac
-paperless_url: http://172.17.0.1:8000            # Linux
-3. Кэширование тегов
+### 🏷️ Теги
 
-Инструмент кэширует теги для ускорения работы. Если вы создали новые теги в Paperless-ngx, обновите кэш:
+| Функция | Параметры | Описание |
+|---------|-----------|----------|
+| `list_tags` | `-` | Список всех тегов |
+| `list_tags_hierarchical` | `-` | Иерархическое дерево тегов |
+| `get_tag_hierarchy` | `tag_name: str` | Иерархия конкретного тега |
+| `get_tags_with_parents` | `doc_id: int` | Теги документа с иерархией |
+| `add_tag_to_document` | `doc_id: int, tag_name: str` | Добавить тег документу |
+| `remove_tag_from_document` | `doc_id: int, tag_name: str` | Удалить тег у документа |
+| `clear_tag_cache` | `-` | Обновить кэш тегов |
 
-text
+### 📝 Примечания
+
+| Функция | Параметры | Описание |
+|---------|-----------|----------|
+| `get_document_notes` | `doc_id: int` | Список примечаний |
+| `add_document_note` | `doc_id: int, note: str` | Добавить примечание |
+| `update_document_note` | `doc_id: int, note_index: int, new_note: str` | Обновить примечание |
+| `delete_document_note` | `doc_id: int, note_index: int` | Удалить примечание |
+
+### 📋 Пользовательские поля
+
+| Функция | Параметры | Описание |
+|---------|-----------|----------|
+| `list_custom_fields` | `-` | Список всех полей |
+| `get_document_custom_fields` | `doc_id: int` | Поля документа |
+| `set_document_custom_field` | `doc_id: int, field_name: str, value: str` | Установить значение |
+| `remove_document_custom_field` | `doc_id: int, field_name: str` | Удалить значение |
+| `create_custom_field` | `name, field_type, required, options` | Создать поле |
+| `delete_custom_field` | `field_id_or_name: str` | Удалить поле |
+| `update_custom_field` | `field_id_or_name, new_name, required, options` | Обновить поле |
+
+### 🐛 Диагностика
+
+| Функция | Параметры | Описание |
+|---------|-----------|----------|
+| `debug_document_tags` | `doc_id: int` | Диагностика тегов документа |
+
+---
+
+## 📋 Типы пользовательских полей
+
+| Тип | Описание | Пример значения |
+|-----|----------|-----------------|
+| `string` | Текст | `"Иванов Иван"` |
+| `integer` | Целое число | `42` |
+| `float` | Дробное число | `3.14` |
+| `boolean` | Да/Нет | `true` |
+| `date` | Дата | `2025-03-15` |
+| `datetime` | Дата и время | `2025-03-15T14:30:00` |
+| `monetary` | Денежное значение | `1000.50` |
+| `documentlink` | Ссылка на документ | `12345` |
+| `select` | Выбор из списка | `"Новый"` |
+
+---
+
+## ⚙️ Настройка окружения
+
+### Docker
+
+Если Paperless-ngx запущен в Docker:
+
+```yaml
+# Для Windows/Mac
+paperless_url: http://host.docker.internal:8000
+
+# Для Linux
+paperless_url: http://172.17.0.1:8000
+```
+
+### Кэширование тегов
+
+Инструмент кэширует теги для ускорения работы. При создании новых тегов в Paperless-ngx обновите кэш:
+
+```
 🔄 Обнови кэш тегов
+```
 
-OpenWebUI Chat
-      │
-      ▼
-Paperless-ngx Tool
-      │
-      ├── Модуль документов (поиск, просмотр, получение)
-      ├── Модуль тегов (управление, иерархия, кэширование)
-      ├── Модуль примечаний (CRUD операции)
-      └── Модуль пользовательских полей (создание, управление)
-      │
-      ▼
-HTTPX Client (HTTP-запросы)
-      │
-      ▼
-Paperless-ngx REST API
-      │
-      ├── /api/documents/     - управление документами
-      ├── /api/tags/          - управление тегами
-      ├── /api/custom_fields/ - управление пользовательскими полями
-      └── /api/documents/{id}/notes/ - управление примечаниями
+---
 
-<details> <summary><b>Ошибка 401: Неверный API токен</b></summary>
-Проверьте корректность API токена в настройках. Убедитесь, что у токена есть необходимые права.
+## 🏗️ Архитектура
 
-</details><details> <summary><b>Ошибка подключения</b></summary>
-Проверьте URL Paperless-ngx сервера
-Убедитесь, что сервер доступен из сети
-Если используется Docker, проверьте настройки сети
-</details><details> <summary><b>Теги не отображаются</b></summary>
-Используйте функцию clear_tag_cache() для обновления кэша тегов.
+### Компоненты системы
 
-</details>
-🔒 Security
+**1. OpenWebUI Chat**
+Интерфейс пользователя, принимает команды и отображает результаты.
 
-API токен хранится в зашифрованном виде в настройках OpenWebUI
-Все запросы используют HTTPS при наличии
-Токен передаётся через заголовок Authorization
-📝 License
+**2. Paperless-ngx Tool**
+Основной модуль, который обрабатывает запросы и управляет взаимодействием с API.
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+**3. Кэш тегов**
+Хранит список тегов для быстрого доступа, избегая лишних запросов к API.
 
-🤝 Contributing
+**4. Модули инструмента**
+- Модуль документов — поиск, просмотр, получение документов
+- Модуль тегов — управление тегами и иерархией
+- Модуль примечаний — CRUD операции с заметками
+- Модуль полей — создание и управление пользовательскими полями
 
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+**5. HTTPX Client**
+Отвечает за отправку HTTP-запросов к Paperless-ngx API.
 
-🙏 Acknowledgements
+**6. Paperless-ngx REST API**
+Бэкенд системы, предоставляет эндпоинты для работы с данными:
+- `/api/documents/` — управление документами
+- `/api/tags/` — управление тегами
+- `/api/custom_fields/` — управление пользовательскими полями
+- `/api/documents/{id}/notes/` — управление примечаниями
 
-Paperless-ngx — for the amazing document management system
-OpenWebUI — for the extensible AI interface
-httpx — for the HTTP client
-<div align="center"> Made with ❤️ for the Paperless-ngx community </div>
+### Взаимодействие
+
+1. Пользователь отправляет команду в чат
+2. Инструмент определяет тип операции
+3. Формируется HTTP-запрос к соответствующему эндпоинту
+4. API возвращает данные
+5. Результат форматируется и отображается в чате
+
+---
+
+## 🔧 Устранение проблем
+
+### ❌ Ошибка 401 (Unauthorized)
+
+**Проблема:** Неверный API токен
+
+**Решение:**
+- Проверьте корректность токена в настройках
+- Убедитесь, что токен имеет необходимые права
+- Создайте новый токен в Paperless-ngx
+
+### ❌ Ошибка подключения
+
+**Проблема:** Недоступен сервер Paperless-ngx
+
+**Решение:**
+- Проверьте URL в настройках
+- Убедитесь, что сервер запущен
+- Проверьте сетевые настройки (особенно в Docker)
+- Проверьте файрвол
+
+### ❌ Теги не отображаются
+
+**Проблема:** Устаревший кэш тегов
+
+**Решение:**
+```
+🔄 Обнови кэш тегов
+```
+
+### ❌ Документ не найден
+
+**Проблема:** Неправильный ID документа
+
+**Решение:**
+- Проверьте правильность ID
+- Используйте поиск для получения корректных ID
+- Убедитесь, что документ существует
+
+---
+
+## 🔒 Безопасность
+
+- API токен хранится в зашифрованном виде в настройках OpenWebUI
+- Поддержка HTTPS для защищённого соединения
+- Токен передаётся в заголовке `Authorization`
+- Все запросы аутентифицированы
+
+---
+
+## 📝 Лицензия
+
+MIT License — используйте свободно в любых целях.
+
+---
+
+## 🤝 Вклад в проект
+
+Будем рады вашим идеям, баг-репортам и pull request'ам!
+
+**Как помочь:**
+1. Форкните репозиторий
+2. Создайте ветку с фичей
+3. Отправьте pull request
+
+---
+
+## 🙏 Благодарности
+
+- [Paperless-ngx](https://docs.paperless-ngx.com/) — за отличную систему управления документами
+- [OpenWebUI](https://openwebui.com/) — за расширяемый AI-интерфейс
+- [httpx](https://www.python-httpx.org/) — за удобный HTTP-клиент
+
+---
+
+<div align="center">
+
+**[⬆ Наверх](#-paperless-ngx-integration-for-openwebui)**
+
+---
+
+**Сделано с ❤️ для сообщества Paperless-ngx**
+
+</div>
