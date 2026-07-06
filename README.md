@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![OpenWebUI](https://img.shields.io/badge/OpenWebUI-Tool-0056b3?style=for-the-badge&logo=openai)](https://openwebui.com/)
+[![OpenWebUI](https://img.shields.io/badge/OpenWebUI-Tool-0056b3?style=for-the-badge&logo=openai)]([https://openwebui.com/](https://github.com/open-webui/open-webui))
 [![Paperless-ngx](https://img.shields.io/badge/Paperless--ngx-API-2ea44f?style=for-the-badge&logo=paperless)](https://docs.paperless-ngx.com/)
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
