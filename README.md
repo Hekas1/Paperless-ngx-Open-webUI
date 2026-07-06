@@ -1,4 +1,3 @@
-
 # 📄 Paperless-ngx Integration for OpenWebUI
 
 <div align="center">
