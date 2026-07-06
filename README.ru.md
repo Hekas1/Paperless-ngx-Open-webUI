@@ -10,6 +10,7 @@
 **Полнофункциональный инструмент для управления документами Paperless-ngx прямо из чата с AI**
 
 </div>
+
 ---
 
 ## 🌍 Read this in other languages
